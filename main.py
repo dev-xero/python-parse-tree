@@ -34,7 +34,7 @@ class BinaryTree():
         if root.rightChild != None:
             self.printNodes(root.rightChild)
     
-    def getRootKey(self, key):
+    def getRootKey(self):
         return self.key
 
     def getLeftChild(self):
@@ -43,15 +43,29 @@ class BinaryTree():
     def getRightChild(self):
         return self.rightChild
 
+    def modelTree(self, padding, pointer, node, treeBuilder=""):
+        if node is None:
+            return treeBuilder
+
+        treeBuilder += padding + pointer + node.getRootKey() + '\n'
+        nextPadding = "│  "
+        rightPointer = "└──"
+        leftPointer = "├──" if node.getRightChild() is not None else "└──"
         
+        treeBuilder = self.modelTree(nextPadding, leftPointer, node.getLeftChild(), treeBuilder)
+        treeBuilder = self.modelTree(nextPadding, rightPointer, node.getRightChild(), treeBuilder)
+        
+        return treeBuilder
+
 def main():
-    rootNode = BinaryTree("(")
-    rootNode.insertLeft("+")
-    rootNode.insertLeft("1")
-    rootNode.insertRight(")")
-    rootNode.insertRight("2")
+    rootNode = BinaryTree("root")
+
+    rootNode.insertLeft("node1")
+    rootNode.insertRight("node2")
 
     rootNode.printNodes(rootNode)
+    treeBuild = rootNode.modelTree("", "", rootNode)
+    print(treeBuild)
 
 
 if __name__ == "__main__":
