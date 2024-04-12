@@ -64,7 +64,7 @@ def main():
     rootNode.insertRight("node2")
 
     rootNode.printNodes(rootNode)
-    treeBuild = rootNode.modelTree("", "", rootNode)
+    treeBuild = rootNode.modelTree("\n", "", rootNode)
     print(treeBuild)
 
 
