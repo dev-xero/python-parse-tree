@@ -3,6 +3,9 @@ class BinaryTree():
         self.key = root
         self.leftChild = None
         self.rightChild = None
+
+    def setRootKey(self, key):
+        self.key = key
     
     def insertLeft(self, newNode):
         subTree = BinaryTree(newNode)      
@@ -31,6 +34,9 @@ class BinaryTree():
         if root.rightChild != None:
             self.printNodes(root.rightChild)
     
+    def getRootKey(self, key):
+        return self.key
+
     def getLeftChild(self):
         return self.leftChild
 
