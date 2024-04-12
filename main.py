@@ -30,6 +30,12 @@ class BinaryTree():
             self.printNodes(root.leftChild)
         if root.rightChild != None:
             self.printNodes(root.rightChild)
+    
+    def getLeftChild(self):
+        return self.leftChild
+
+    def getRightChild(self):
+        return self.rightChild
 
         
 def main():
