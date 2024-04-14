@@ -4,7 +4,7 @@ from BinaryTree import BinaryTree
 
 # --------------------------------------------------------------------
 
-def buildParseTree(self, fpexp: [str]):
+def buildParseTree(fpexp: str):
     fplist = fpexp.split()
     pStack: [BinaryTree] = []
     eTree = BinaryTree("")
@@ -14,13 +14,13 @@ def buildParseTree(self, fpexp: [str]):
 
     for i in fplist:
         if i == "(":
-            currTree.insertLeft('')
-            pStack.insert(0, currentTree)
+            currTree.insertLeft(BinaryTree(''))
+            pStack.insert(0, currTree)
             currTree = currTree.getLeftChild()
         
         elif i in ['+', '-', '/', '*']:
             currTree.setRootKey(i)
-            currTree.insertRight('')
+            currTree.insertRight(BinaryTree(i))
             pStack.insert(0, currTree)
             currTree = currTree.getRightChild()
         

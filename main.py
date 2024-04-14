@@ -1,6 +1,7 @@
 # ------------------------------------------------------------------
 
 from BinaryTree import BinaryTree as Bt
+from ParseTree import buildParseTree
 
 # -----------------------------------------------------------------
 
@@ -32,6 +33,9 @@ def main():
     
     print("\n\n")
     print(treeBuild)
+
+    pt = buildParseTree("( 3 + 5 ) * ( 7 - 2 )")
+    rootNode.printNodes(pt)
 
 
 if __name__ == "__main__":
